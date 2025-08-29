@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Custom CSS -->
-  <link rel="preload" href="./main.css" as="style">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
 
   <title>MTK PDA KOTA Malang</title>
 
@@ -44,14 +44,15 @@
       50% { background: transparent; }
     }
 
-    /* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease-out;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 1s ease-in-out;
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
   </style>
 </head>
@@ -99,7 +100,7 @@
   <!-- Hero Section -->
   <section id="home"
            class="bg-cover bg-center h-screen flex items-center justify-center relative bg-parallax" 
-           style="background-image: url('./assets/images/Sejarah-Aisyiyah.webp');">
+           style="background-image: url('https://aisyiyah.or.id/wp-content/uploads/2023/09/Sejarah-Aisyiyah.jpg');">
 
     <div class="absolute inset-0 bg-black opacity-60"></div>
 
@@ -198,32 +199,49 @@
     </div>
   </main>
 
-  <!-- Author Section -->
-  <section class="bg-amber-300 p-6">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <h2 class="text-3xl font-semibold text-center lg:col-start-2">
-        Anggota Majelis Tabligh dan Ketarjihan PDA Kota Malang
-      </h2>
+  <div class="flex justify-center">
+  <a href="https://mtkpdakotamalang.pages.dev" target="_blank" rel="noopener noreferrer"
+   class="inline-block py-4 px-8 bg-green-600 text-white rounded-lg hover:bg-green-700 mb-8 items-center">Baca Artikel Kami yang Lain</a>
     </div>
+<!-- Author Section -->
+<section id="about" class="bg-amber-300 p-6 pt-8">
+  <div class="max-w-6xl mx-auto space-y-10">
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 animate-fadeIn">
-      <!-- Card 1 -->
-      <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300 animate-fadeIn">
-        <img src="https://via.placeholder.com/100" alt="Author 1" class="w-24 h-24 mx-auto rounded-full mb-4">
-        <h3 class="text-lg font-semibold">Bondan</h3>
-        <p class="text-gray-600 text-sm mb-4">Penulis teknologi, suka eksperimen dengan Jekyll & Tailwind.</p>
-        <div class="flex justify-center space-x-4 text-gray-500">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
+    <!-- Bagian Atas: Judul + Card Besar -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+      <!-- Judul -->
+      <div class="fade-in">
+        <h2 class="text-4xl font-semibold">
+          Anggota Majelis Tabligh dan Ketarjihan PDA Kota Malang
+        </h2>
       </div>
 
+      <!-- Card Besar -->
+      <div class="fade-in">
+        <div class="bg-white rounded-2xl shadow-lg p-10 text-center hover:shadow-xl transition duration-300">
+          <img src="https://via.placeholder.com/150" alt="Author 1" class="w-32 h-32 mx-auto rounded-full mb-6">
+          <h3 class="text-2xl font-bold">Bondan</h3>
+          <p class="text-gray-600 text-base mb-6">
+            Penulis teknologi, suka eksperimen dengan Jekyll & Tailwind.
+          </p>
+          <div class="flex justify-center space-x-6 text-gray-500 text-xl">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian Bawah: Grid Card Biasa -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
       <!-- Card 2 -->
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300">
         <img src="https://via.placeholder.com/100" alt="Author 2" class="w-24 h-24 mx-auto rounded-full mb-4">
         <h3 class="text-lg font-semibold">Rani</h3>
-        <p class="text-gray-600 text-sm mb-4">Menulis tentang desain web, UI/UX, dan branding digital.</p>
+        <p class="text-gray-600 text-sm mb-4">
+          Menulis tentang desain web, UI/UX, dan branding digital.
+        </p>
         <div class="flex justify-center space-x-4 text-gray-500">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-github"></i></a>
@@ -235,7 +253,23 @@
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300">
         <img src="https://via.placeholder.com/100" alt="Author 3" class="w-24 h-24 mx-auto rounded-full mb-4">
         <h3 class="text-lg font-semibold">Dewi</h3>
-        <p class="text-gray-600 text-sm mb-4">Fokus menulis soal produktivitas dan gaya hidup digital.</p>
+        <p class="text-gray-600 text-sm mb-4">
+          Fokus menulis soal produktivitas dan gaya hidup digital.
+        </p>
+        <div class="flex justify-center space-x-4 text-gray-500">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300">
+        <img src="https://via.placeholder.com/100" alt="Author 4" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-lg font-semibold">Sinta</h3>
+        <p class="text-gray-600 text-sm mb-4">
+          Sering membahas literasi digital dan media sosial sehat.
+        </p>
         <div class="flex justify-center space-x-4 text-gray-500">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-github"></i></a>
@@ -243,10 +277,11 @@
         </div>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- Script -->
-  <script src="app.js"></script>
+  <script src="./main.js" defer></script>
 </body>
 </html>
-

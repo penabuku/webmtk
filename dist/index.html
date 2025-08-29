@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link href="./main.css" rel="stylesheet">
+
+  <title>MTK PDA KOTA Malang</title>
+
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif; 
+    }
+
+    /* Navbar glassmorphism */
+    .glass-navbar { 
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px); 
+    }
+
+    /* Parallax background */
+    .bg-parallax { 
+      background-attachment: fixed; 
+    }
+
+    /* Cursor typing effect */
+    .cursor {
+      display: inline-block;
+      margin-left: 2px;
+      width: 2px;
+      background: white;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+
+    /* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 w-full z-50 py-4 px-8 transition-all duration-300 ease-in-out">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="text-3xl font-bold text-white tracking-tight drop-shadow-md flex items-center">
+        <img src="https://mtkpdakotamalang.pages.dev/assets/images/aisyiyah-utama.webp" 
+             alt="logo" 
+             class="avatar w-20 h-20 rounded-full inline-block mr-3">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6 items-center ml-auto">
+        <a href="#home" class="text-lg font-semibold text-white hover:text-green-300 transition duration-300 drop-shadow-md">Beranda</a>
+        <a href="#blog" class="text-lg font-semibold text-white hover:text-green-300 transition duration-300 drop-shadow-md">Blog</a>
+        <a href="#about" class="text-lg font-semibold text-white hover:text-green-300 transition duration-300 drop-shadow-md">Tentang</a>
+        <a href="#contact" class="text-lg font-semibold text-white hover:text-green-300 transition duration-300 drop-shadow-md">Kontak</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-white hover:text-gray-200 focus:outline-none">
+          <svg class="w-6 h-6 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden py-2 text-center glass-navbar">
+      <a href="#home" class="block px-4 py-2 text-lg font-semibold text-white hover:bg-white hover:bg-opacity-10 transition duration-300">Beranda</a>
+      <a href="#blog" class="block px-4 py-2 text-lg font-semibold text-white hover:bg-white hover:bg-opacity-10 transition duration-300">Blog</a>
+      <a href="#about" class="block px-4 py-2 text-lg font-semibold text-white hover:bg-white hover:bg-opacity-10 transition duration-300">Tentang</a>
+      <a href="#contact" class="block px-4 py-2 text-lg font-semibold text-white hover:bg-white hover:bg-opacity-10 transition duration-300">Kontak</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home"
+           class="bg-cover bg-center h-screen flex items-center justify-center relative bg-parallax" 
+           style="background-image: url('./assets/images/Sejarah-Aisyiyah.webp');">
+
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+
+    <div class="container mx-auto px-4 text-center z-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-white drop-shadow-lg">
+        Majelis Tabligh dan Ketarjihan
+      </h1>
+      <h2 id="typing" 
+          class="text-3xl md:text-4xl font-semibold mb-8 max-w-2xl mx-auto text-white drop-shadow-md">
+        <span id="typing-text"></span>
+        <span class="cursor"></span>
+      </h2>
+      <a href="#blog" 
+         class="inline-block bg-green-700 text-white font-semibold py-3 px-8 rounded-full shadow-2xl hover:bg-yellow-500 transition duration-300 transform hover:scale-105">
+        Baca Sekarang
+      </a>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <main class="container mx-auto px-4 py-12">
+    <h2 id="blog" class="text-3xl font-bold text-center mb-10 text-gray-800">Artikel Terbaru</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Artikel 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop" 
+             alt="Gambar Artikel Teknologi" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <span class="inline-block bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Teknologi</span>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Masa Depan Kecerdasan Buatan</h3>
+          <p class="text-gray-600 text-sm mb-4">Bagaimana AI mengubah cara kita bekerja dan berinteraksi sehari-hari. Sebuah eksplorasi mendalam.</p>
+          <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition duration-300">Baca Selengkapnya &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Artikel 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop" 
+             alt="Gambar Artikel Gaya Hidup" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <span class="inline-block bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Gaya Hidup</span>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Panduan Hidup Sehat di Era Digital</h3>
+          <p class="text-gray-600 text-sm mb-4">Tips dan trik untuk menjaga keseimbangan hidup di tengah kesibukan.</p>
+          <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition duration-300">Baca Selengkapnya &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Artikel 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" 
+             alt="Gambar Artikel Alam" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <span class="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Traveling</span>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Destinasi Tersembunyi di Indonesia</h3>
+          <p class="text-gray-600 text-sm mb-4">Jelajahi keindahan alam yang belum banyak diketahui orang.</p>
+          <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition duration-300">Baca Selengkapnya &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Artikel 4 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=400&h=300&fit=crop" 
+             alt="Gambar Artikel Kuliner" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <span class="inline-block bg-red-200 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Kuliner</span>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Rahasia Masakan Tradisional</h3>
+          <p class="text-gray-600 text-sm mb-4">Mengupas resep autentik Nusantara yang bikin lidah bergoyang.</p>
+          <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition duration-300">Baca Selengkapnya &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Artikel 5 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&h=300&fit=crop" 
+             alt="Gambar Artikel Pendidikan" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <span class="inline-block bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Pendidikan</span>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Belajar Efektif di Era Digital</h3>
+          <p class="text-gray-600 text-sm mb-4">Strategi belajar online agar tetap fokus dan produktif.</p>
+          <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition duration-300">Baca Selengkapnya &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Artikel 6 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?w=400&h=300&fit=crop" 
+             alt="Gambar Artikel Olahraga" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <span class="inline-block bg-orange-200 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Olahraga</span>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Rutinitas Sehat untuk Pemula</h3>
+          <p class="text-gray-600 text-sm mb-4">Tips olahraga ringan yang cocok dilakukan setiap hari.</p>
+          <a href="#" class="text-green-600 hover:text-green-800 font-semibold text-sm transition duration-300">Baca Selengkapnya &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Author Section -->
+  <section class="bg-amber-300 p-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <h2 class="text-3xl font-semibold text-center lg:col-start-2">
+        Anggota Majelis Tabligh dan Ketarjihan PDA Kota Malang
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 animate-fadeIn">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300 animate-fadeIn">
+        <img src="https://via.placeholder.com/100" alt="Author 1" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-lg font-semibold">Bondan</h3>
+        <p class="text-gray-600 text-sm mb-4">Penulis teknologi, suka eksperimen dengan Jekyll & Tailwind.</p>
+        <div class="flex justify-center space-x-4 text-gray-500">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300">
+        <img src="https://via.placeholder.com/100" alt="Author 2" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-lg font-semibold">Rani</h3>
+        <p class="text-gray-600 text-sm mb-4">Menulis tentang desain web, UI/UX, dan branding digital.</p>
+        <div class="flex justify-center space-x-4 text-gray-500">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition duration-300">
+        <img src="https://via.placeholder.com/100" alt="Author 3" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-lg font-semibold">Dewi</h3>
+        <p class="text-gray-600 text-sm mb-4">Fokus menulis soal produktivitas dan gaya hidup digital.</p>
+        <div class="flex justify-center space-x-4 text-gray-500">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>

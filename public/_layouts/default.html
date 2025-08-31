@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="8DNMMK7RcBtpkFu-iHRll4FUlzxJVefYaod0sgBECN4" />
+  {% seo %}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+
+  <!-- CSS -->
+  <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<body>
+  <header class="site-header container">
+    <div class="header-inner">
+      <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      <nav class="site-nav">
+        <div class="hamburger" onclick="document.querySelector('.nav-list').classList.toggle('active')">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-wrapper">
+          <ul class="nav-list">
+            <li><a href="/link/">Link</a></li>
+            <li><a href="/sitemap/">Sitemap</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li class="search-item">
+              <button class="search-toggle" aria-label="Cari">
+                <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+                  <path d="M10 2a8 8 0 0 1 6.32 12.906l4.387 4.388a1 1 0 0 1-1.414 1.414l-4.388-4.387A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/>
+                </svg>
+              </button>
+              <form class="search-form" action="/search" method="get">
+                <input type="text" name="q" placeholder="Cari artikel..." required>
+                <button type="submit">Cari</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <main class="site-main">
+      {{ content }}
+    </main>
+    <aside class="sidebar">
+      <div class="widget-profile">
+        <img src="/assets/images/logo-aisyiyah-biru.webp" alt="Logo Aisyiyah" class="profile-img" loading="lazy">
+        <p class="profile-desc"></p>
+      </div>
+      <div class="widget">
+        <div class="widget-title">Kategori</div>
+        <ul>
+          <li><a href="/category/fiqh-wanita/">Fiqh Wanita</a></li>
+          <li><a href="/category/shohabiah/">Shohabiah</a></li>
+          <li><a href="/category/kegiatan/">Kegiatan</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer container">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </footer>
+
+ <!-- MathJax hanya saat dibutuhkan -->
+{% if page.math %}
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+{% endif %}
+
+<!-- Script toggle search -->
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.querySelector(".search-toggle");
+    const searchForm = document.querySelector(".search-form");
+
+    if (toggleBtn && searchForm) {
+      toggleBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        searchForm.classList.toggle("active");
+      });
+    }
+  });
+</script>
+
+  
+</body>
+
+</body>
+</html>

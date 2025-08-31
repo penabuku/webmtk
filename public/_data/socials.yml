@@ -1,0 +1,19 @@
+- name: Instagram
+  url: https://instagram.com/mtkpdakotamalang
+  icon: "fa-brands fa-instagram"
+
+- name: WhatsApp
+  url: https://wa.me/6285179806027
+  icon: "fa-brands fa-whatsapp"
+
+- name: YouTube
+  url: https://youtube.com/@mtpdamalkotchannel8716
+  icon: "fa-brands fa-youtube"
+
+- name: Facebook
+  url: https://www.facebook.com/share/19j6Lbp8gY
+  icon: "fa-brands fa-facebook"
+
+- name: Kumpulan Artikel
+  url: /
+  icon: "fa-solid fa-file-lines"

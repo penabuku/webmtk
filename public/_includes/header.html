@@ -1,0 +1,37 @@
+  <header id="navbar" class="fixed  top-0 w-full z-50 py-4 px-8 transition-all duration-300 ease-in-out text-green-800">
+    <div class="max-w-5xl container mx-auto px-5 flex justify-between items-center">
+      
+      <!-- Logo -->
+      <a href="/" class="text-3xl font-bold tracking-tight drop-shadow-md flex items-center">
+        <img src="https://mtkpdakotamalang.pages.dev/assets/images/aisyiyah-utama.webp"
+             alt="logo"
+             class="avatar w-16 h-16 rounded-full inline-block mr-3">
+        <h1 class="text-lg md:text-2xl font-bold text-green-600">MTK PDA Kota Malang</h1>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden text-green-600 md:flex space-x-6 items-center ml-auto text-green-600">
+        <a href="#blog" class="text-lg font-semibold text-green-600 hover:text-green-300 transition">Blog</a>
+        <a href="#about" class="text-lg font-semibold text-green-600 hover:text-green-300 transition">Anggota</a>
+        <a href="#contact" class="text-lg font-semibold text-green-600 hover:text-green-300 transition">Kontak</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-green-600 hover:text-gray-200 focus:outline-none">
+          <svg class="w-6 h-6 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden py-2 text-center backdrop-blur-md">
+      <a href="/" class="block px-4 py-2 text-lg font-semibold text-green-600 hover:bg-opacity-10 transition">Beranda</a>
+      <a href="#blog" class="block px-4 py-2 text-lg font-semibold text-green-600 hover:bg-opacity-10 transition">Blog</a>
+      <a href="#about" class="block px-4 py-2 text-lg font-semibold text-green-600 hover:bg-opacity-10 transition">Anggota</a>
+      <a href="#contact" class="block px-4 py-2 text-lg font-semibold text-green-600 hover:bg-opacity-10 transition">Kontak</a>
+    </div>
+  </header>

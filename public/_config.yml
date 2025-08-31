@@ -1,0 +1,60 @@
+title: "MTK PDA Kota Malang"
+description: >- # deskripsi singkat untuk SEO
+  Website resmi MTK PDA Kota Malang berisi artikel, informasi, dan kegiatan.
+baseurl: ""
+url: "https://mtkpdakotamalang.pages.dev"
+default_image: "/assets/images/Aisyiyah-hijau.png"
+
+authors:
+    bondan:
+      name:           Bondan
+      site:           https://bondan.my.id
+      avatar:         assets/images/bondan.webp
+      bio:            "Blogger, Employer, love to explore new ideas and write on my morning coffee!"
+      email:          bondanvidio@gmail.com
+      twitter:        https://twitter.com/bondanhadoh
+      facebook:       https://www.facebook.com/bondan.muradani
+      thread:         https://www.threads.com/@bondan_murdani
+      instagram:      https://www.instagram.com/bondan_murdani
+      github:         https://github.com/papabondan
+
+author: Bondan Murdani Soleh
+email: admin@bondan.my.id
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+  math_engine_opts:
+    preview: false
+
+theme: minima
+permalink: /:title/
+paginate: 5
+paginate_path: "/page/:num/"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-json-feed
+
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      search: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

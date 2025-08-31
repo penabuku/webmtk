@@ -1,0 +1,53 @@
+- id: 1
+  name: Kopi Dampit
+  price: 35000
+  images: 
+    - /assets/images/produk/kopi.webp
+  description: | 
+    Kopi bubuk 250 gram robusta dampit spesial. Gilingan halus untuk kebutuhan kopi tubruk.
+    
+    **NB :** 
+    - *Bebas ongkir untuk Kota Malang dan Kota Surabaya, untuk kota lain ada biaya ongkirnya (masih di estimasikan)*
+    - *Produk kami kirim setelah terkonfirmasi pembayaran*
+
+- id: 2
+  name: Kimchi 0,5 Kg
+  price: 35000
+  images: 
+    - /assets/images/produk/dal-kimchi.webp
+  description: |
+    Kimchi produk dari dal.kimchi, makanan fermentasi menyehatkan. Terdiri dari sawi putih, wortel, daun bawang, bawang bombai. Pembelian beserta toples, khusus untuk daerah Kota Malang dengan biaya tambahan 25.000.
+
+    **NB :** 
+    - *Bebas ongkir untuk Kota Malang dan Kota Surabaya, untuk kota lain ada biaya ongkirnya (masih di estimasikan)*
+    - *Produk kami kirim setelah terkonfirmasi pembayaran*
+
+- id: 3
+  name: Mushaf Tilawah Quba
+  price: 75000
+  images:
+    - /assets/images/produk/mushaf-tilawah-quba.webp
+    - /assets/images/produk/mushaf-tilawah-quba-2.webp
+  description: |
+    - Mushaf Tilawah Quba ukuran A5, 
+    - Mushaf dengan khat dan tajwid warna, 
+    - Berat satuan 500 gram, 
+    - Tersedia 4 warna cover (merah, biru, hitam, hijau), 
+    - Bebas ongkir untuk seluruh pengiriman Jawa Timur.
+
+- id: 4
+  name: Mushaf Hafalan Al Hifz
+  price: 78500
+  images:
+    - /assets/images/produk/al-hifz.webp
+    - /assets/images/produk/al-hifz-1.webp
+    - /assets/images/produk/al-hifz-2.webp
+  description: |
+    - Mushaf Tilawah Hafalan Al Hifz ukuran A5, Hardcover, 600 gram
+    - QR Code audio tilawah dan Motivasi Qurani
+    - Khat dengan terjemah perkata, 
+    - 4 blok warna hafalan, 
+    - Warna tajwid, 
+    - Terjemah KEMENAG RI,
+    - Full color,
+    - **Bebas ongkir untuk seluruh pengiriman Jawa Timur.**

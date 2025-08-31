@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="8DNMMK7RcBtpkFu-iHRll4FUlzxJVefYaod0sgBECN4" />
+  {% seo %}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+
+  <!-- CSS -->
+  <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
+</head>
+
+<body class="bg-grey-300">
+
+  {% include header.html %}
+  <main class="bg-amber-100 mx-auto px-4 py-12"></main>
+
+  <main class="container bg-amber-100 mx-auto px-4 py-12">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+</body>
+</html>
+

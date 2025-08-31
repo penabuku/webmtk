@@ -1,0 +1,168 @@
+<h3>Komentar</h3>
+<div id="comments"></div>
+<hr>
+
+<!-- Template Form (Hidden) -->
+<template id="form-template">
+  <form class="comment-form" onsubmit="submitComment(event)">
+    <input type="text" name="name" placeholder="Nama" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="url" name="url" placeholder="URL (opsional)"><br>
+    <textarea name="comment" placeholder="Komentar..." required></textarea><br>
+
+    <input type="hidden" name="slug" value="{{ page.slug | default: page.url | slugify }}">
+    <input type="hidden" name="parent_id" value="">
+
+    <!-- CAPTCHA -->
+    <div class="cf-turnstile"></div>
+
+    <button class="form-button" type="submit">Kirim</button>
+    <div class="form-message" style="margin-top:5px;"></div>
+  </form>
+</template>
+
+
+<!-- Form Komentar Utama -->
+<div id="main-form"></div>
+
+<!-- Turnstile Script (dengan callback) -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer data-callback="onloadTurnstileCallback"></script>
+
+<script defer>
+const scriptURL = "https://script.google.com/macros/s/AKfycbyZ15P75jHED1ebymo3kBhuCR6gkP_VIJlOWXdatXbYtonb-UJJ6qRE23JqzSrH32ZEWQ/exec";
+const slug = "{{ page.slug | default: page.url | slugify }}";
+
+let replyFormEl = null;
+
+// 🔒 Fungsi untuk mencegah HTML
+function sanitizeInput(str) {
+  const div = document.createElement("div");
+  div.innerText = str;
+  return div.innerHTML;
+}
+
+function loadComments() {
+  fetch(scriptURL)
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('comments');
+      const filtered = data.filter(item => item.slug === slug);
+      const commentMap = {};
+      filtered.forEach(c => commentMap[c.id] = { ...c, children: [] });
+      const roots = [];
+      filtered.forEach(c => {
+        if (c.parent_id && commentMap[c.parent_id]) {
+          commentMap[c.parent_id].children.push(commentMap[c.id]);
+        } else {
+          roots.push(commentMap[c.id]);
+        }
+      });
+
+      function renderComments(comments, depth = 0) {
+        let html = "";
+        comments.forEach(c => {
+          const nameHTML = c.url
+            ? `<a href="${c.url}" target="_blank">${c.name}</a>`
+            : `<strong>${c.name}</strong>`;
+          html += `
+            <div style="margin-left:${depth * 20}px; margin-top:10px" id="comment-${c.id}">
+              ${nameHTML} (${new Date(c.date).toLocaleString("id-ID", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+              })})<br>
+              ${c.comment}<br>
+              <a href="#" onclick="insertReplyForm('${c.id}');return false;">Balas</a>
+              <hr>
+              ${renderComments(c.children, depth + 1)}
+            </div>
+          `;
+        });
+        return html;
+      }
+
+      container.innerHTML = renderComments(roots);
+      insertReplyForm(""); // Tampilkan form utama
+    });
+}
+
+function insertReplyForm(parentId) {
+  if (replyFormEl) replyFormEl.remove();
+
+  const template = document.getElementById("form-template");
+  replyFormEl = template.content.cloneNode(true).children[0];
+  replyFormEl.querySelector("input[name='parent_id']").value = parentId;
+  replyFormEl.querySelector("input[name='slug']").value = slug;
+
+  if (parentId === "") {
+    document.getElementById("main-form").appendChild(replyFormEl);
+  } else {
+    const parentDiv = document.getElementById("comment-" + parentId);
+    parentDiv.appendChild(replyFormEl);
+  }
+
+  // CAPTCHA: langsung render saat form dimasukkan
+  const el = replyFormEl.querySelector('.cf-turnstile');
+  if (el && !el.hasChildNodes()) {
+    turnstile.render(el, {
+      sitekey: '0x4AAAAAABumTFbxRNdGxTt9'
+    });
+  }
+}
+
+function submitComment(e) {
+  e.preventDefault();
+  const form = e.target;
+  const msgEl = form.querySelector(".form-message");
+
+  const nameEl = form.querySelector("input[name='name']");
+  const urlEl = form.querySelector("input[name='url']");
+  const commentEl = form.querySelector("textarea[name='comment']");
+
+  // 🚫 Deteksi base64 atau data URI
+  if (/data:(.*);base64,/.test(commentEl.value)) {
+    msgEl.innerText = "Komentar tidak boleh mengandung file atau data base64.";
+    return;
+  }
+
+  // 🔒 Sanitasi input
+  nameEl.value = sanitizeInput(nameEl.value);
+  urlEl.value = sanitizeInput(urlEl.value);
+  commentEl.value = sanitizeInput(commentEl.value);
+
+  const data = new FormData(form);
+  const captchaResponse = form.querySelector('[name="cf-turnstile-response"]')?.value;
+
+  if (!captchaResponse) {
+    msgEl.innerText = "Silakan selesaikan verifikasi CAPTCHA.";
+    return;
+  }
+
+  data.append("cf-turnstile-response", captchaResponse);
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: data
+  })
+    .then(res => res.json())
+    .then(json => {
+      if (json.result === "success") {
+        msgEl.innerText = "Komentar berhasil dikirim!";
+        setTimeout(() => {
+          msgEl.innerText = "";
+          loadComments();
+        }, 1000);
+      } else {
+        msgEl.innerText = "Gagal: " + json.message;
+      }
+    })
+    .catch(() => {
+      msgEl.innerText = "Terjadi kesalahan saat mengirim.";
+    });
+}
+
+loadComments();
+</script>
+

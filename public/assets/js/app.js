@@ -1,7 +1,16 @@
 // Ambil elemen penting
 const navbar = document.getElementById("navbar");
 const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
+const mobileMenu = document.getElementById("mobile-menu
+
+        // Fungsi untuk menambahkan atau menghapus kelas berdasarkan posisi scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Angka 50 bisa disesuaikan
+                navbar.classList.add('glass-navbar', 'shadow-lg', 'text-yellow-300');
+            } else {
+                navbar.classList.remove('glass-navbar', 'shadow-lg', 'text-yellow-300');
+            }
+        });
 
 // Navbar effect & link color on scroll
 window.addEventListener("scroll", () => {
@@ -68,3 +77,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fadeElements.forEach(el => observer.observe(el));
 });
+
